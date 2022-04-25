@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+
+    <title>Lista Pokemones</title>
+</head>
+<body>
+    <h1>Lista Pokemones</h1>
+    <h2>Aquí podrás ver tus Pokemones</h2>
+
+
+    <section class="container flex text-center">
+        {% for pokemon in pokemons -%}
+        <div class="columna">
+            <h2>{{pokemon}}</h2>
+            <hr>
+            Descripción: Lore ipsum... <br>
+            <button type="button" class="btn-pokedex">
+                <a href="{{url_for('mostrar_habilidad', nombre=pokemon)}}">Ver habilidades</a>
+            </button><br>
+        </div>
+        {% endfor -%}
+    </section>
+
+</body>
+</html>
